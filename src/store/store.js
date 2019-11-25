@@ -1,6 +1,7 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
 import todos from './modules/todos.js';
+import videos from './modules/videos.js';
 
 
 import axios from 'axios'
@@ -18,8 +19,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   // strict: true,
   modules: {
-    todos
-    // ,
-    // items
+    todos,
+    videos
   }
 });

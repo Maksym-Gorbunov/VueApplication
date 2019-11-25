@@ -1,6 +1,11 @@
 <template>
   <div>
     <h3>Add Todo</h3>
+
+    <hr>
+    
+    <hr>
+
     <div class="add">
       <form @submit="onSubmit">
         <input type="text" v-model="title" placeholder="Add Todo...">
@@ -35,7 +40,7 @@ export default {
       // this.addTodo(this.title);
     }
   },
-  computed: mapGetters(["allTodos", "pages", "items"]),
+  computed: mapGetters(["allTodos", "pages", "items", "videos"]),
 };
 </script>
 

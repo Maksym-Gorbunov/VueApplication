@@ -4,6 +4,9 @@
 
     <Test/>
 
+    <div>Videos: {{videos}}</div>
+
+
     <hr>
 
       <div> {{pages[0].name}} </div>
@@ -41,7 +44,7 @@ export default {
     
     
   },
-  computed: mapGetters(["allTodos", "pages", "items"]),
+  computed: mapGetters(["allTodos", "pages", "items", "videos"]),
   created() {
     this.pages[0].name = "nnnnn"
   }
