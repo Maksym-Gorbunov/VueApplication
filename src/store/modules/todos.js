@@ -1,11 +1,29 @@
 import axios from 'axios';
 
 const state = {
-  todos: []
+  todos: [],
+  pages: [
+    {
+      id: 1,
+      name: "one"
+    },
+    {
+      id: 2,
+      name: "two"
+    }
+  ],
+  items:[
+    {
+      id: 200,
+      title: "my items"
+    }
+  ]
 };
 
 const getters = {
-  allTodos: state => state.todos
+  allTodos: state => state.todos,
+  pages: state => state.pages,
+  items: state => state.items
 };
 
 const actions = {
@@ -47,7 +65,7 @@ const actions = {
       updTodo
     );
 
-    console.log(response.data);
+    //console.log(response.data);
 
     commit('updateTodo', response.data);
   }

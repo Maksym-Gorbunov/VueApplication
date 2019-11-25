@@ -2,7 +2,21 @@
   <div class="container">
     <h1>Page3</h1>
 
-    <!-- <p> {store.$this.page} </p> -->
+    <Test/>
+
+    <hr>
+
+      <div> {{pages[0].name}} </div>
+      <!-- <div v-for="page in pages" :key="page.id"> {{page[0].id}} </div> -->
+
+    <hr>
+    <div class="pages">
+      <div class="page" v-for="page in pages" :key="page.id">
+        {{page.name}}
+      </div>
+    </div>
+    <hr>
+
 
     <AddTodo/>
     <FilterTodos/>
@@ -16,18 +30,20 @@ import { mapGetters, mapActions } from "vuex";
 import Todos from "../Todos";
 import AddTodo from "../AddTodo";
 import FilterTodos from "../FilterTodos";
+import Test from "../Test";
 
 
 export default {
   name: "Page3",
-  components: {Todos, AddTodo, FilterTodos},
+  components: {Todos, AddTodo, FilterTodos, Test},
   methods: {
     ...mapActions(["fetchTodos", "deleteTodo", "updateTodo"]),
     
     
   },
-  computed: mapGetters(["allTodos", "page"]),
+  computed: mapGetters(["allTodos", "pages", "items"]),
   created() {
+    this.pages[0].name = "nnnnn"
   }
 };
 
