@@ -44,7 +44,7 @@ export default {
     
     
   },
-  computed: mapGetters(["allTodos", "pages", "items", "videos"]),
+computed: mapGetters(["allTodos", "pages", "items", "videos"]),
   created() {
     this.pages[0].name = "nnnnn"
   }

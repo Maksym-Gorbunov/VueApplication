@@ -1,23 +1,47 @@
 <template>
-  <div>
-    <h1>HOME</h1>
-
-    <!-- <button type="button" class="btn btn-danger btn-primary btn-lg">
-      <i class="far fa-edit"></i> edit <i class="fas fa-address-book"></i>
-    </button> -->
-    <div class="container">
-      <!-- <Items msg="Hello from Items" /> -->
+  <div id="homePage">
+    
+    <div class="topContainer">
+      <Navbar/>
     </div>
+
+    <div class="mainContainer">
+      <div class="leftContainer">left</div>
+      <div class="centerContainer">center</div>
+      <div class="rigthContainer">right</div>
+    </div>
+
   </div>
 </template>
 
 <script>
-// import Items from "../Items";
+import Navbar from "../Navbar";
 
 export default {
   name: "Home",
-  // components: { Items }
+  components: { Navbar }
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+  #homePage{
+    height: 100vh;
+  }
+  .mainContainer{
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+    grid-gap: 10px;
+    background-color: #fff;
+    height: 60vh;
+
+  }
+  .leftContainer{
+    background: rgb(110, 233, 186);
+  }
+  .centerContainer{
+    background: #ccc;
+  }
+  .rigthContainer{
+    background: rgb(155, 154, 233);
+  }
+</style>
