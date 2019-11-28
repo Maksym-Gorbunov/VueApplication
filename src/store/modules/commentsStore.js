@@ -1,7 +1,7 @@
 /* eslint-disable */
 //import axios from 'axios';
-import dataStore from './dataStore'
-import videoStore from './videoStore'
+import usersStore from './usersStore'
+import videosStore from './videosStore'
 /* eslint-enable */
 
 

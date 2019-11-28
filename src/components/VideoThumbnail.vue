@@ -1,8 +1,10 @@
 <template>
-  <div id="videoItem">
-        <img :src="video.imageUrl" alt="image">
-        <p>{{video.title}}</p>
-        <p>{{video.description}}</p>
+  <div id="videoItem" class="videoItem">
+        <!-- <img :src="video.imageUrl" alt="image"> -->
+        <img :src="getImageUrl(video.screenshotUrl)" alt="image">
+        <p><b>title: </b> {{video.title}} </p>
+        <!-- <p><b>description: </b> {{sliceDescriptionText(video.description)}} </p> -->
+        <p><b>description: </b> {{(video.description).substring(0,40)}} ... </p>
   </div>
 </template>
 
@@ -10,14 +12,24 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-  name: "VideoItem",
+  name: "VideoThumbnail",
   props: ["video"],
+  data() {
+    return {
+      // temp: this.dice.value
+    };
+  },
   methods: {
     ...mapActions(["updateTodo"]),
 
-    getImageUrl(){
-      console.log("URL")
-    }
+    getImageUrl(screenshotUrl){
+      if(screenshotUrl === ""){
+        return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRvoT4cVXWDbRCAYpBSxaebr0vqe9CDV2SRWYgmI2gHPEabRmw2w&s";
+      }
+      return screenshotUrl;
+    },
+
+
   },
   computed: mapGetters(["videos"]),
   created() {
@@ -27,6 +39,21 @@ export default {
 </script>
 
 <style scoped>
+
+.videoItem {
+  border: 1px solid #ccc;
+  background: #41b883;
+  padding: 1rem;
+  border-radius: 5px;
+  /* text-align: center; */
+  position: relative;
+  cursor: pointer;
+}
+
+img{
+  height: 10em;
+}
+
 /* .todos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

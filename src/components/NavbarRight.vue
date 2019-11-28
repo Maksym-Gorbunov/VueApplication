@@ -1,13 +1,12 @@
 <template>
   <div id="navbarRight">
-    <!-- <span>currentUser: {{ currentUser.login }}</span> -->
-
+    
     <!-- LOGGED IN -->
-    <div v-if="currentUser.login != ''">
+    <div v-if="(currentUser != null) && (currentUser.mail != '')">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            {{ currentUser.login }} 
+            {{ currentUser.mail }} 
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
@@ -52,7 +51,6 @@ export default {
   methods: {
     ...mapActions(["signOutAction"]),
     signOut() {
-      // console.log(this.currentUser)
       this.signOutAction();
     }
   },

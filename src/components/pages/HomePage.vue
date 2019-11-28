@@ -28,12 +28,13 @@ export default {
   components: { Navbar, VideoGroup },
   computed: mapGetters(["allTodos", "pages", "items", "videos"]),
   methods: {
-    ...mapActions(["testAction"]),
+    ...mapActions(["testAction", "signInAction"]),
   test(){
     this.testAction();
   }
   },
   created(){
+    this.signInAction();
   }
 };
 </script>
