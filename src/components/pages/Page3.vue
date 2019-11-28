@@ -2,6 +2,18 @@
   <div class="container">
     <h1>Page3</h1>
 
+    <hr>
+    <hr>
+    <hr>
+    Videos: {{videos}}
+    <hr>
+    Pages: {{pages}}
+    <hr>
+    <hr>
+    <hr>
+    <hr>
+
+
     <Test/>
 
     <div>Videos: {{videos}}</div>

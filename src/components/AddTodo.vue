@@ -23,6 +23,9 @@ export default {
     ...mapActions(["addTodo"]),
     onSubmit(e) {
       e.preventDefault();
+
+      console.log("helllo")
+
       this.addTodo(this.title);
     }
   }

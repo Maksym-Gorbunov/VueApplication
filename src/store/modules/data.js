@@ -1,4 +1,5 @@
 //import axios from 'axios';
+import todos from './todos'
 
 const state = {
 
@@ -7,7 +8,7 @@ const state = {
     login: "Iths"
   },
   
-  videos: [
+  videos: [ 
     {
       id: 1,
       title: "clip_one"
@@ -25,12 +26,14 @@ const getters = {
 };
 
 const actions = {
-    signOutAction(){
+    testAction(){
+      console.log("testAction: "+ state.videos[0].title)  
+      console.log("testAction: "+ todos.state.pages[0].name)  
+    },
 
+    signOutAction(){
     state.currentUser.id = null;
     state.currentUser.login = '';
-    
-    
   }
 };
 

@@ -17,7 +17,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">YouStream</a>
+          <a class="navbar-brand" href="home">YouStream</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

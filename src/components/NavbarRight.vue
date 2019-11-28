@@ -1,9 +1,9 @@
 <template>
   <div id="navbarRight">
-    <span>currentUser: {{ currentUser.login }}</span>
+    <!-- <span>currentUser: {{ currentUser.login }}</span> -->
 
     <!-- LOGGED IN -->
-    <div v-if="currentUser != ''">
+    <div v-if="currentUser.login != ''">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -25,6 +25,7 @@
     <!-- GUEST -->
     <div v-else>
       <ul class="nav navbar-nav navbar-right">
+        
         <span>Guest</span>
         <button type="button" class="btn btn-default navbar-btn"> Log in </button>
         <button type="button" class="btn btn-default navbar-btn"> Sign upp </button>
@@ -51,6 +52,7 @@ export default {
   methods: {
     ...mapActions(["signOutAction"]),
     signOut() {
+      // console.log(this.currentUser)
       this.signOutAction();
     }
   },

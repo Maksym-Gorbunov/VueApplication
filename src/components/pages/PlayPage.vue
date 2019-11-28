@@ -7,7 +7,7 @@
 
     <div class="mainContainer">
       <div class="leftContainer">left</div>
-      <div class="centerContainer">center</div>
+      <div class="centerContainer">PLAY PAGE</div>
       <div class="rigthContainer">right</div>
     </div>
 
@@ -18,7 +18,7 @@
 import Navbar from "../Navbar";
 
 export default {
-  name: "Home",
+  name: "PlayPage",
   components: { Navbar }
 };
 </script>
