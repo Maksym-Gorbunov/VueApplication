@@ -1,8 +1,15 @@
+/* eslint-disable */
 //import axios from 'axios';
 import dataStore from './dataStore'
-import videoStore from './videosStore'
+import videoStore from './videoStore'
+/* eslint-enable */
+
 
 const state = {
+  temmmp: {
+    id: 44
+  },
+
   comments: [
     {
       id: 1,
@@ -16,11 +23,10 @@ const state = {
 };
 
 const getters = {
-  videos: state => state.videos
+  comments: state => state.comments
 };
 
 const actions = {
-  
 };
 
 const mutations = {

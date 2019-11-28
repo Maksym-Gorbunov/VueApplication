@@ -1,8 +1,9 @@
 import Vuex from 'vuex';
 import Vue from 'vue';
 import todos from './modules/todos.js';
-import videos from './modules/videos.js';
-import data from './modules/data.js';
+import dataStore from './modules/dataStore.js';
+import videoStore from './modules/videoStore.js';
+import commentStore from './modules/commentStore.js';
 
 
 import axios from 'axios'
@@ -21,7 +22,8 @@ export default new Vuex.Store({
   // strict: true,
   modules: {
     todos,
-    videos,
-    data
+    dataStore,
+    videoStore,
+    commentStore
   }
 });
