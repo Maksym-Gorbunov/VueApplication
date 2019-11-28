@@ -1,4 +1,6 @@
 //import axios from 'axios';
+import dataStore from './dataStore'
+import videoStore from './videosStore'
 
 const state = {
   videos: [
