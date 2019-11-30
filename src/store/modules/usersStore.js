@@ -57,6 +57,12 @@ const getters = {
 };
 
 const actions = {
+  test111(){
+    console.log(state.users[0].mail)
+    console.log(videosStore.state.videos[0].title)
+  },
+
+
   signOutAction() {
     state.currentUser = null;
   },
