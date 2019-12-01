@@ -1,5 +1,5 @@
 <template>
-  <div id="videoItem" class="videoItem">
+  <div id="videoItem" class="videoItem" @click="openVideoThumbnail">
         <!-- <img :src="video.imageUrl" alt="image"> -->
         <img :src="getImageUrl(video.screenshotUrl)" alt="image">
         <p><b>title: </b> {{video.title}} </p>
@@ -21,7 +21,10 @@ export default {
   },
   methods: {
     ...mapActions(["updateTodo"]),
-
+    openVideoThumbnail(){
+      console.log("open video")
+      this.$router.push({ name: 'page2' })
+    },
     getImageUrl(screenshotUrl){
       if(screenshotUrl === ""){
         return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRvoT4cVXWDbRCAYpBSxaebr0vqe9CDV2SRWYgmI2gHPEabRmw2w&s";
