@@ -13,7 +13,7 @@ export default new Router({
     },
     {
       path: '/play',
-      name: 'play',
+      name: 'playPage',
       component: () => import('./components/pages/PlayPage.vue')
     },
     {

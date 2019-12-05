@@ -4,24 +4,31 @@
     <div class="topContainer">
       <Navbar/>
     </div>
-
+    
     <div class="mainContainer">
       <div class="leftContainer">left</div>
-      <div class="centerContainer">PLAY PAGE</div>
+      <div class="centerContainer">PLAY PAGE
+
+        <Player/>  
+
+      </div>
       <div class="rigthContainer">right</div>
     </div>
 
   </div>
 </template>
 
+
 <script>
 import Navbar from "../Navbar";
+import Player from "../Player";
 
 export default {
   name: "PlayPage",
-  components: { Navbar }
+  components: { Navbar, Player }
 };
 </script>
+
 
 <style scoped>
   #homePage{

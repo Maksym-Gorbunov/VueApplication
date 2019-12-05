@@ -1,5 +1,5 @@
 <template>
-  <div id="videoItem" class="videoItem" @click="openVideoThumbnail">
+  <div id="videoItem" class="videoItem" @click="openVideo(video)">
         <!-- <img :src="video.imageUrl" alt="image"> -->
         <img :src="getImageUrl(video.screenshotUrl)" alt="image">
         <p><b>title: </b> {{video.title}} </p>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions} from "vuex";
 
 export default {
   name: "VideoThumbnail",
@@ -21,9 +21,12 @@ export default {
   },
   methods: {
     ...mapActions(["updateTodo"]),
-    openVideoThumbnail(){
+    openVideo(clickedVideo){
       console.log("open video")
-      this.$router.push({ name: 'page2' })
+      console.log("***" + clickedVideo)
+      console.log("<<<" + this.currentVideo.id)
+      // this.currentVideo = clickedVideo;
+      this.$router.push({ name: 'playPage' })
     },
     getImageUrl(screenshotUrl){
       if(screenshotUrl === ""){
@@ -34,7 +37,7 @@ export default {
 
 
   },
-  computed: mapGetters(["videos"]),
+  computed: mapGetters(["videos", "currentVideo"]),
   created() {
     
   }

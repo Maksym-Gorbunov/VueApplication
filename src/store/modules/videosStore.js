@@ -6,6 +6,11 @@ import commentsStore from './commentsStore'
 
 
 const state = {
+
+  currentVideo: {
+    id: 44
+  },
+
   videos: [
     {
       id: 1,
@@ -71,7 +76,8 @@ const state = {
 };
 
 const getters = {
-  videos: state => state.videos
+  videos: state => state.videos,
+  currentVideo: state => state.currentVideo
 };
 
 const actions = {

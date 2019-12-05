@@ -18,6 +18,7 @@
   </div>
 </template>
 
+
 <script>
 import { mapGetters, mapActions } from "vuex";
 import Navbar from "../Navbar";
@@ -39,6 +40,7 @@ export default {
   }
 };
 </script>
+
 
 <style scoped>
   #homePage{

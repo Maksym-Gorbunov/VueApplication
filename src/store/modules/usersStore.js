@@ -5,6 +5,7 @@ import videosStore from "./videosStore";
 /* eslint-enable */
 
 const state = {
+  
   currentUser: {},
 
   users: [
@@ -58,8 +59,8 @@ const getters = {
 
 const actions = {
   test111(){
-    console.log(state.users[0].mail)
-    console.log(videosStore.state.videos[0].title)
+    // console.log(state.users[0].mail)
+    // console.log(videosStore.state.videos[0].title)
   },
 
 
