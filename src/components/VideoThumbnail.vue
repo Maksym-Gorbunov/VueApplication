@@ -8,6 +8,8 @@
   </div>
 </template>
 
+// make file upload page 
+
 <script>
 import { mapGetters, mapActions} from "vuex";
 
