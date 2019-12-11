@@ -2,11 +2,11 @@
   <div id="navbarRight">
     
     <!-- LOGGED IN -->
-    <div v-if="(currentUser != null) && (currentUser.mail != '')">
+    <div v-if="(currentUser != null) && (currentUser.email != '')">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            {{ currentUser.mail }} 
+            {{ currentUser.email }} 
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
