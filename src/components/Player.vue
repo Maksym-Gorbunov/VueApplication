@@ -7,6 +7,7 @@
 
 <video controls autoplay name="media"> == $0 <source src="http://localhost:8000/videos/Avengers.mp4" type="video/mp4"></video>
 <p>Current:  {{this.currentVideo}}</p>
+<p>views</p>
 
 
   </div>
