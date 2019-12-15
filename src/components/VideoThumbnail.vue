@@ -22,12 +22,12 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["updateTodo"]),
+    ...mapActions(["setCurrentVideo"]),
+
     openVideo(clickedVideo){
-      console.log("open video")
-      console.log("***" + clickedVideo)
-      console.log("<<<" + this.currentVideo.id)
-      // this.currentVideo = clickedVideo;
+      
+      this.setCurrentVideo(clickedVideo);
+      
       this.$router.push({ name: 'playPage' })
     },
     getImageUrl(screenshotUrl){
