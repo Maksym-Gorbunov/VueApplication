@@ -9,7 +9,7 @@
       <div class="leftContainer">left</div>
       <div class="centerContainer">PLAY PAGE
 
-        <Player/>  
+        <PlayCenter/>  
 
       </div>
       <div class="rigthContainer">right</div>
@@ -21,11 +21,11 @@
 
 <script>
 import Navbar from "../Navbar";
-import Player from "../Player";
+import PlayCenter from "../PlayCenter";
 
 export default {
   name: "PlayPage",
-  components: { Navbar, Player }
+  components: { Navbar, PlayCenter }
 };
 </script>
 

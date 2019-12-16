@@ -1,15 +1,18 @@
 <template>
-  <div id="player">
+  <div id="playCenter">
 
     <h5>player component</h5>
 
     <!-- <video controls autoplay name="media"> == $0 <source src="C:\Users\Maksym\Downloads\video1.mp4" type="video/mp4"></video> -->
 
-<video controls autoplay name="media"> == $0 <source src="this.getVideoUrl(555)" type="video/mp4"></video>
-<p>Current:  {{this.currentVideo.videoUrl}}</p>
-<p>Current:  {{this.currentVideo.id}}</p>
+<video controls autoplay name="media"> == $0 <source :src="currentVideo.videoUrl" type="video/mp4"></video>
+<p><b>{{this.currentVideo.title}}</b>          
+  <span class="pull-right">views: {{this.currentVideo.views}}</span></p>
+  
+  
+<p></p>
+<p>Description:  {{this.currentVideo.description}}</p>
 
-<p>views</p>
 
 
   </div>
@@ -19,13 +22,10 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 export default {
-  name: "Player",
+  name: "PlayCenter",
   props: ["temp"],
   methods: {
     ...mapActions([]),
-    getVideoUrl(url){
-      console.log("ooo ooo "+ url);  
-    }
   },
   computed: mapGetters(["videos", "currentVideo"]),
   created() {
@@ -35,4 +35,11 @@ export default {
 
 
 <style scoped>
+#playCenter{
+  padding: 1em;
+}
+
+video{
+  width: 100%;
+}
 </style>
