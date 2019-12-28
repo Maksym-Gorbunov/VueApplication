@@ -2,7 +2,9 @@ import axios from 'axios';
 
 
 const state = {
-  todos: []
+  todos: [],
+  temporer: [],
+  asd:[]
 };
 
 const getters = {
