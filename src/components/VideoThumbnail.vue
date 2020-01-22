@@ -1,17 +1,18 @@
 <template>
   <div id="videoItem" class="videoItem" @click="openVideo(video)">
-        <!-- <img :src="video.imageUrl" alt="image"> -->
-        <img :src="getImageUrl(video.screenshotUrl)" alt="image">
-        <p><b>title: </b> {{video.title}} </p>
-        <!-- <p><b>description: </b> {{sliceDescriptionText(video.description)}} </p> -->
-        <p><b>description: </b> {{(video.description).substring(0,40)}} ... </p>
+    <!-- <img :src="video.imageUrl" alt="image"> -->
+    <img
+      :src="getImageUrl(video.id)"
+      onerror="this.onerror=null; this.src='http://maxcoder.pro/img/temp/default.png'"
+      alt=""
+    />
+    <p><b>title: </b> {{ video.title }}</p>
+    <p><b>description: </b> {{ video.description.substring(0, 40) }} ...</p>
   </div>
 </template>
 
-// make file upload page 
-
 <script>
-import { mapGetters, mapActions} from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "VideoThumbnail",
@@ -24,30 +25,24 @@ export default {
   methods: {
     ...mapActions(["setCurrentVideo"]),
 
-    openVideo(clickedVideo){
-      
+    openVideo(clickedVideo) {
       this.setCurrentVideo(clickedVideo);
-      
-      this.$router.push({ name: 'playPage' })
+
+      this.$router.push({ name: "playPage" });
     },
-    getImageUrl(screenshotUrl){
-      if(screenshotUrl === ""){
-        return "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRvoT4cVXWDbRCAYpBSxaebr0vqe9CDV2SRWYgmI2gHPEabRmw2w&s";
+    getImageUrl(id) {
+      if (id === "") {
+        return "http://maxcoder.pro/img/temp/default.png";
       }
-      return screenshotUrl;
-    },
-
-
+      return "http://maxcoder.pro/img/temp/" + id + ".jpg";
+    }
   },
   computed: mapGetters(["videos", "currentVideo"]),
-  created() {
-    
-  }
+  created() {}
 };
 </script>
 
 <style scoped>
-
 .videoItem {
   border: 1px solid #ccc;
   background: #41b883;
@@ -58,7 +53,7 @@ export default {
   cursor: pointer;
 }
 
-img{
+img {
   height: 10em;
 }
 

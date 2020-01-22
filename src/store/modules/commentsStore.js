@@ -1,9 +1,7 @@
 /* eslint-disable */
-//import axios from 'axios';
-import usersStore from './usersStore'
-import videosStore from './videosStore'
+import usersStore from "./usersStore";
+import videosStore from "./videosStore";
 /* eslint-enable */
-
 
 const state = {
   temmmp: {
@@ -26,12 +24,9 @@ const getters = {
   comments: state => state.comments
 };
 
-const actions = {
-};
+const actions = {};
 
-const mutations = {
-  
-};
+const mutations = {};
 
 export default {
   state,

@@ -1,8 +1,7 @@
 <template>
   <div id="homePage">
-    
     <div class="topContainer">
-      <Navbar/>
+      <Navbar />
     </div>
 
     <button @click="test">click</button>
@@ -10,14 +9,12 @@
     <div class="mainContainer">
       <!-- <div class="leftContainer">left</div> -->
       <div class="centerContainer">
-        <VideoGroup/>
+        <VideoGroup />
       </div>
       <!-- <div class="rigthContainer">right</div> -->
     </div>
-
   </div>
 </template>
-
 
 <script>
 import { mapGetters, mapActions } from "vuex";
@@ -29,38 +26,37 @@ export default {
   components: { Navbar, VideoGroup },
   computed: mapGetters(["allTodos", "pages", "items", "videos"]),
   methods: {
-    ...mapActions(["testAction", "signInAction", "test111"]),
-  test(){
-    this.testAction();
-  }
+    ...mapActions(["testAction", "signInAction", "test111", "getAllVideos"]),
+    test() {
+      this.testAction();
+    }
   },
-  created(){
+  created() {
     this.test111();
     this.signInAction();
+    this.getAllVideos();
   }
 };
 </script>
 
-
 <style scoped>
-  #homePage{
-    height: 100vh;
-  }
-  .mainContainer{
-    display: grid;
-    grid-template-columns: 100%;
-    grid-gap: 10px;
-    background-color: #fff;
-    height: 60vh;
-
-  }
-  /* .leftContainer{
+#homePage {
+  height: 100vh;
+}
+.mainContainer {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 10px;
+  background-color: #fff;
+  height: 60vh;
+}
+/* .leftContainer{
     background: rgb(110, 233, 186);
   } */
-  .centerContainer{
-    background: #ccc;
-  }
-  /* .rigthContainer{
+.centerContainer {
+  background: #ccc;
+}
+/* .rigthContainer{
     background: rgb(155, 154, 233);
   } */
 </style>

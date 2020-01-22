@@ -16,15 +16,15 @@ export default new Router({
       name: 'playPage',
       component: () => import('./components/pages/PlayPage.vue')
     },
-    {
-      path: '/page2',
-      name: 'page2',
-      component: () => import('./components/pages/Page2.vue')
-    },
-    {
-      path: '/page3',
-      name: 'page3',
-      component: () => import('./components/pages/Page3.vue')
-    }
+    // {
+    //   path: '/page2',
+    //   name: 'page2',
+    //   component: () => import('./components/pages/Page2.vue')
+    // },
+    // {
+    //   path: '/page3',
+    //   name: 'page3',
+    //   component: () => import('./components/pages/Page3.vue')
+    // }
   ]
 })
