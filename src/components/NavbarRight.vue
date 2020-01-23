@@ -64,7 +64,7 @@ export default {
   data() {
     return {
       temp2: "temp2 ",
-      showLoginModal:true
+      showLoginModal:false
     };
   },
   methods: {

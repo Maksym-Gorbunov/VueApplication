@@ -29,6 +29,10 @@ Vue.config.productionTip = false
 // Vue.use(BootstrapVue)
 // Vue.config.productionTip = false
 
+
+const cors = require('cors')
+
+
 new Vue({
   store,
   router,

@@ -2,6 +2,9 @@
   <div id="playCenter">
     <h5>player component</h5>
 
+    <!-- <Player userId=currentVideo.userId videoId=currentVideo.id><Player/> -->
+    <!-- <Player></Player> -->
+
     <video controls autoplay name="media">
       == $0
       <source
@@ -26,8 +29,11 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+// import Player from './Player';
+
 export default {
   name: "PlayCenter",
+  // components: {Player},
   props: ["temp"],
   methods: {
     ...mapActions([])

@@ -5,42 +5,11 @@ import axios from "axios";
 /* eslint-enable */
 
 const state = {
-
-  accessToken: {},
+  accessToken: "",
 
   currentUser: {},
 
-  users: [
-    {
-      id: 101,
-      firstName: "admin",
-      lastName: "admin",
-      email: "admin@mail.com",
-      personalId: "8273",
-      avatarImagePath:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2RgV5yu32nzVGZMsFyhq1kKwSddQ7S4CGDveRoMQsQDB7RZunXw&s",
-      joinDate: null
-    },
-    {
-      id: 102,
-      firstName: "Nils",
-      lastName: "Karlsson",
-      email: "nils.karlsson@mail.com",
-      personalId: "24343",
-      avatarImagePath:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH7lyRlKKN6O28U-_6hZBZclEGsrPA5Jdvvz7jGWgYY2ZPetZj&s",
-      joinDate: null
-    },
-    {
-      id: 103,
-      firstName: "Kalle",
-      lastName: "Petersson",
-      email: "kalle.petersson@mail.com",
-      personalId: "23434",
-      avatarImagePath: "img_path...",
-      joinDate: null
-    }
-  ]
+  users: []
 };
 
 const getters = {
@@ -56,38 +25,47 @@ const actions = {
     state.currentUser = null;
   },
 
-  async signInAction({commit}, user) {
-    if(user!=null){
-      
-      
-      const response = await axios.post(
-        'http://localhost:7000/api/signin',
-        { 
+  async signInAction({ commit }, user) {
+    if (user != null) {
+      await axios
+        .post("http://localhost:7000/api/signin", {
           username: user.username,
           password: user.password
-        }
-        );
+        })
+        .then(jwtResponse => {
+            axios.get(
+            "http://localhost:7000/api/video-data/users/email/" + user.username,
+            {
+              headers: {
+                "Authorization": jwtResponse.data.accessToken
+                // "Access-Control-Allow-Origin": "*",
+                // "Authorization": "Bearer " + jwtResponse.data.accessToken
+              }
+            }
+          ).then((userResponse)=>{
+            state.currentUser = userResponse.data
+            state.accessToken = jwtResponse.data.accessToken
+            console.log(state.currentUser)  
+            console.log(state.accessToken)  
+          });
+
+        });
+
+
         
-        commit('signInMutation', response.data);
-      }  
+        // commit("signInMutation", data);
+    }
   }
 };
 
 const mutations = {
-  
-  signInMutation: (state, data) => {
-    if(data.accessToken!=null && data.accessToken!=""){
-      state.accessToken = data.accessToken
-      console.log("JWT Token: "+ state.accessToken)
-      
-    
-    }
-  }
-
-
+  // signInMutation: (state, data) => {
+  //   if (data.accessToken != null && data.accessToken != "") {
+  //     state.accessToken = data.accessToken;
+  //     console.log("JWT Token: " + state.accessToken);
+  //   }
+  // }
 };
-
-
 
 export default {
   state,
