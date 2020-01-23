@@ -1,35 +1,14 @@
 <template>
   <div id="navbarRight">
-    <!-- Modal -->
-    <div
-      id="myModal"
-      class="modal hide fade"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="myModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-header">
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal"
-          aria-hidden="true"
-        >
-          ×
-        </button>
-        <h3 id="myModalLabel">Modal header</h3>
-      </div>
-      <div class="modal-body">
-        <p>One fine body…</p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">
-          Close
-        </button>
-        <button class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+   
+    <!-- <button id="show-modal" @click="showModal = true">Show Modal</button> -->
+    <LoginModal v-if="showLoginModal" @close="showLoginModal = false">
+    <!--
+      you can use custom content here to overwrite
+      default content
+    -->
+    <h3 slot="header">custom header</h3>
+  </LoginModal>
 
     <!-- LOGGED IN -->
     <div v-if="currentUser != null && currentUser.email != ''">
@@ -62,7 +41,7 @@
     <div v-else>
       <ul class="nav navbar-nav navbar-right">
         <span>Guest</span>
-        <button type="button" class="btn btn-default navbar-btn" @click="login">
+        <button type="button" class="btn btn-default navbar-btn" @click="showLoginModal = true">
           Log in
         </button>
         <button type="button" class="btn btn-default navbar-btn">
@@ -76,14 +55,16 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import $ from "jquery";
+import LoginModal from "./LoginModal";
 
 export default {
   name: "NavbarRight",
-  components: {},
+  components: {LoginModal},
   props: ["temp1", "loginStatus"],
   data() {
     return {
-      temp2: "temp2 "
+      temp2: "temp2 ",
+      showLoginModal:true
     };
   },
   methods: {
@@ -91,7 +72,13 @@ export default {
 
     login() {
       console.log("login");
-      $("#myModal").modal("show");
+      // $("#my-modal").modal({
+      //   show: "true"
+      // });
+
+      $('#navbarRight').css('opacity', '0.6');
+
+      // $("#myModal").modal("show");
     },
 
     signOut() {

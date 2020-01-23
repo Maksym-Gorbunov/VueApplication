@@ -1,9 +1,13 @@
 /* eslint-disable */
 import commentsStore from "./commentsStore";
 import videosStore from "./videosStore";
+import axios from "axios";
 /* eslint-enable */
 
 const state = {
+
+  accessToken: {},
+
   currentUser: {},
 
   users: [
@@ -52,12 +56,38 @@ const actions = {
     state.currentUser = null;
   },
 
-  signInAction() {
-    state.currentUser = state.users[0];
+  async signInAction({commit}, user) {
+    if(user!=null){
+      
+      
+      const response = await axios.post(
+        'http://localhost:7000/api/signin',
+        { 
+          username: user.username,
+          password: user.password
+        }
+        );
+        
+        commit('signInMutation', response.data);
+      }  
   }
 };
 
-const mutations = {};
+const mutations = {
+  
+  signInMutation: (state, data) => {
+    if(data.accessToken!=null && data.accessToken!=""){
+      state.accessToken = data.accessToken
+      console.log("JWT Token: "+ state.accessToken)
+      
+    
+    }
+  }
+
+
+};
+
+
 
 export default {
   state,
