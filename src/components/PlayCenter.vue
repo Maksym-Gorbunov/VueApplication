@@ -2,10 +2,15 @@
   <div id="playCenter">
     <h5>player component</h5>
 
-    <!-- <Player userId=currentVideo.userId videoId=currentVideo.id><Player/> -->
-    <!-- <Player></Player> -->
+    
+    <!-- <Player userId=currentVideo.userId videoId=currentVideo.id /> -->
+    <Player userId="9" videoId="1" />
 
-    <video controls autoplay name="media">
+    
+
+
+    <!-- LOCAL from StreamingController -->
+    <!-- <video controls autoplay name="media">
       == $0
       <source
         :src="
@@ -16,7 +21,7 @@
         "
         type="video/mp4"
       />
-    </video>
+    </video> -->
 
     <p>
       <b>{{ this.currentVideo.title }}</b>
@@ -29,11 +34,11 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-// import Player from './Player';
+import Player from './Player';
 
 export default {
   name: "PlayCenter",
-  // components: {Player},
+  components: {Player},
   props: ["temp"],
   methods: {
     ...mapActions([])
